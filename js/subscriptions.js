@@ -3,7 +3,7 @@
  */
 $(function () {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/Notifications/sw.js').then(initialiseState);
+        navigator.serviceWorker.register('/sw.js').then(initialiseState);
     } else {
         console.warn('Service workers are not supported in this browser.');
     }
@@ -12,7 +12,7 @@ $(function () {
         var dataObj = {
                 message:message
         };
-        $.ajax({
+        /*$.ajax({
             url : 'PushServlet',
             data : dataObj,
             type : 'POST',
@@ -25,7 +25,7 @@ $(function () {
             {
                 console.log('error')
             }
-        });
+        });*/
     });
 });
 
@@ -126,7 +126,7 @@ function sendSubscriptionToServer(subscription) {
             key: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(key))) : '',
             auth: auth ? btoa(String.fromCharCode.apply(null, new Uint8Array(auth))) : ''
     };
-    $.ajax({
+    /*$.ajax({
         url : 'SubscriptionServlet',
         data : dataObj,
         type : 'POST',
@@ -139,7 +139,7 @@ function sendSubscriptionToServer(subscription) {
         {
             console.log('error')
         }
-    });
+    });*/
     return "";
 // return fetch('/profile/subscription', {
 // method: 'POST',
